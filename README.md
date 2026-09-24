@@ -11,6 +11,8 @@ Entorno completo de **ATORA Lab**, la academia de comunicación y fotografía qu
 | `mu-plugins/atora-smtp.php` | Envío de correo por SMTP, configurado con variables de entorno. |
 | `php/conf.d/atora-uploads.ini` | Límites de subida de PHP. |
 | `docker-compose.yml` | WordPress 6.8 (PHP 8.1), MySQL 8 y phpMyAdmin. |
+| `db/atora_lab.sql` | Respaldo de la base de datos (ver abajo). |
+| `scripts/` | Exportar e importar la base de datos. |
 | `*.png`, `*.jpg`, `*.svg` | Recursos de marca y de prueba. |
 
 ## Puesta en marcha
@@ -27,7 +29,25 @@ docker compose up -d
 
 Si ya tienes el plugin en otra carpeta, indica su ruta en `.env` con `ATORA_LMS_PATH`.
 
-La base de datos y los medios (`wp-content/uploads`) **no** están en el repositorio: viven en los volúmenes de Docker (`atora_database`, `atora_wordpress`). Para migrarlos, exporta la base con phpMyAdmin o `wp db export` y copia `uploads` aparte.
+## Base de datos
+
+`db/atora_lab.sql` es un respaldo completo del contenido: páginas, cursos, mentores, artículos, menús y ajustes.
+
+```bash
+./scripts/db-export.sh   # actualiza db/atora_lab.sql desde Docker
+./scripts/db-import.sh   # restaura db/atora_lab.sql en Docker (pide confirmación)
+```
+
+Por seguridad, el volcado **no** incluye:
+- filas de las tablas de sesiones, tokens, credenciales, claves de API y webhooks (solo su estructura);
+- transitorios de `wp_options`;
+- las opciones `atora_outbound_webhooks`, `woocommerce_paypal_settings`, `recovery_keys` y `mailserver_pass`.
+
+Tras restaurar, vuelve a configurar los webhooks salientes y PayPal desde el admin.
+
+El volcado sí contiene datos personales (usuarios con contraseñas cifradas y contactos del CRM): mantén este repositorio **privado**.
+
+Los medios (`wp-content/uploads`, ~1 GB) no están en el repositorio: viven en el volumen `atora_wordpress`. Cópialos aparte si migras el sitio.
 
 ## Idioma
 
