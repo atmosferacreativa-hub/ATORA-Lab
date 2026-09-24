@@ -1,0 +1,4 @@
+[submodule "atora-lms"]
+	path = atora-lms
+	url = https://github.com/atmosferacreativa-hub/Atora-LMS-6.git
+	branch = main

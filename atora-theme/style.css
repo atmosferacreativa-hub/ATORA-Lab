@@ -1,0 +1,1691 @@
+/*
+Theme Name: Atora Meridian
+Theme URI: https://github.com/mundocap/atora-theme
+Author: MundoCAP
+Description: Premium editorial-commercial WordPress theme for ATORA LMS and WooCommerce.
+Version: 3.0.4
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+Text Domain: atora-learning
+*/
+
+:root {
+	color-scheme: light;
+	--atora-bg: #f6f2eb;
+	--atora-surface: rgba(255, 255, 255, 0.86);
+	--atora-surface-2: #ece4d8;
+	--atora-text: #141a27;
+	--atora-text-muted: #4f596b;
+	--atora-text-subtle: #6f7888;
+	--atora-border: rgba(20, 26, 39, 0.12);
+	--atora-accent: #1e5eff;
+	--atora-accent-hover: #1146ca;
+	--atora-accent-soft: #e8efff;
+	--atora-on-accent: #ffffff;
+	--atora-success: #1c9364;
+	--atora-success-bg: #e6f8f1;
+	--atora-success-text: #0e5a3d;
+	--atora-warning: #b77914;
+	--atora-warning-bg: #fff4df;
+	--atora-warning-text: #8a5603;
+	--atora-danger: #d14e4e;
+	--atora-danger-bg: #fff0f0;
+	--atora-danger-text: #862020;
+	--meridian-shell: min(1180px, calc(100vw - 2.4rem));
+	--meridian-wide: min(1320px, calc(100vw - 2.4rem));
+	--meridian-radius-sm: 10px;
+	--meridian-radius: 18px;
+	--meridian-radius-lg: 28px;
+	--meridian-shadow-sm: 0 10px 24px rgba(17, 24, 39, 0.06);
+	--meridian-shadow-md: 0 18px 44px rgba(17, 24, 39, 0.1);
+	--meridian-shadow-lg: 0 26px 72px rgba(17, 24, 39, 0.14);
+	--meridian-grid-gap: clamp(1rem, 2vw, 1.5rem);
+	--meridian-font-sans: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	--meridian-font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+	--meridian-font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background:
+		radial-gradient(circle at top left, rgba(30, 94, 255, 0.12), transparent 26%),
+		radial-gradient(circle at 90% 10%, rgba(17, 70, 202, 0.08), transparent 20%),
+		linear-gradient(180deg, #fbf8f2 0%, var(--atora-bg) 42%, #f3eee6 100%);
+	color: var(--atora-text);
+	font-family: var(--meridian-font-sans);
+	font-size: 16px;
+	line-height: 1.7;
+	text-rendering: optimizeLegibility;
+}
+
+body.meridian-lock-scroll,
+body.meridian-search-open {
+	overflow: hidden;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+::selection {
+	background: rgba(30, 94, 255, 0.18);
+}
+
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.screen-reader-text:focus,
+.skip-link:focus {
+	clip: auto;
+	width: auto;
+	height: auto;
+	padding: 0.9rem 1.1rem;
+	left: 1rem;
+	top: 1rem;
+	background: #101828;
+	color: #fff;
+	z-index: 200;
+	border-radius: 999px;
+}
+
+.skip-link {
+	position: absolute;
+	left: -9999px;
+}
+
+.meridian-shell {
+	width: var(--meridian-shell);
+	margin: 0 auto;
+}
+
+.site-main {
+	min-height: 60vh;
+	padding: 0 0 5.5rem;
+}
+
+.meridian-eyebrow,
+.meridian-kicker,
+.cov-kicker,
+.clms-product-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin: 0 0 1rem;
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--atora-accent);
+	font-family: var(--meridian-font-mono);
+}
+
+.meridian-eyebrow::before,
+.meridian-kicker::before {
+	content: "";
+	display: block;
+	width: 2rem;
+	height: 1px;
+	background: currentColor;
+	opacity: 0.55;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.9rem;
+	font-family: var(--meridian-font-display);
+	font-weight: 600;
+	letter-spacing: -0.03em;
+	line-height: 1.08;
+	color: var(--atora-text);
+}
+
+p {
+	margin: 0 0 1rem;
+	color: var(--atora-text-muted);
+}
+
+ul,
+ol {
+	margin: 0 0 1.2rem 1.1rem;
+	color: var(--atora-text-muted);
+}
+
+blockquote {
+	margin: 1.8rem 0;
+	padding: 1.4rem 1.5rem;
+	border-left: 3px solid var(--atora-accent);
+	background: rgba(255, 255, 255, 0.45);
+	border-radius: var(--meridian-radius-sm);
+	font-size: 1.1rem;
+	color: var(--atora-text);
+}
+
+pre,
+code,
+.meridian-meta-note {
+	font-family: var(--meridian-font-mono);
+}
+
+input,
+textarea,
+select {
+	width: 100%;
+	padding: 0.95rem 1rem;
+	border: 1px solid var(--atora-border);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.92);
+	color: var(--atora-text);
+	box-shadow: inset 0 1px 2px rgba(17, 24, 39, 0.03);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border-color: rgba(30, 94, 255, 0.42);
+	box-shadow: 0 0 0 4px rgba(30, 94, 255, 0.12);
+}
+
+button,
+.button,
+.wp-element-button,
+.meridian-button,
+.cov-btn,
+.apl-btn,
+.cc-btn-primary,
+.clms-product-mobile-cta__btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	min-height: 3rem;
+	padding: 0.82rem 1.4rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--atora-accent);
+	color: var(--atora-on-accent);
+	text-decoration: none;
+	font-weight: 700;
+	line-height: 1.1;
+	cursor: pointer;
+	transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+	box-shadow: 0 14px 28px rgba(30, 94, 255, 0.18);
+}
+
+button:hover,
+.button:hover,
+.wp-element-button:hover,
+.meridian-button:hover,
+.cov-btn:hover,
+.apl-btn:hover,
+.cc-btn-primary:hover,
+.clms-product-mobile-cta__btn:hover {
+	transform: translateY(-1px);
+	background: var(--atora-accent-hover);
+	color: var(--atora-on-accent);
+}
+
+.meridian-button--ghost {
+	background: rgba(255, 255, 255, 0.88);
+	color: var(--atora-text);
+	box-shadow: none;
+	border: 1px solid var(--atora-border);
+}
+
+.meridian-button--ghost:hover {
+	background: rgba(255, 255, 255, 1);
+	color: var(--atora-text);
+}
+
+.meridian-button--small {
+	min-height: 2.7rem;
+	padding: 0.68rem 1rem;
+	font-size: 0.95rem;
+}
+
+.meridian-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.68rem 0.95rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.54);
+	border: 1px solid var(--atora-border);
+	color: var(--atora-text);
+	text-decoration: none;
+	font-size: 0.92rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.meridian-action--cart {
+	position: relative;
+}
+
+.meridian-cart-count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.45rem;
+	height: 1.45rem;
+	padding: 0 0.32rem;
+	border-radius: 999px;
+	background: var(--atora-accent);
+	color: var(--atora-on-accent);
+	font-size: 0.72rem;
+	font-weight: 800;
+	font-family: var(--meridian-font-mono);
+}
+
+.meridian-header {
+	position: sticky;
+	top: 0;
+	z-index: 70;
+	backdrop-filter: blur(18px);
+	background: rgba(250, 247, 241, 0.72);
+	border-bottom: 1px solid transparent;
+	transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.meridian-header.is-scrolled {
+	background: rgba(250, 247, 241, 0.92);
+	border-color: var(--atora-border);
+	box-shadow: 0 16px 34px rgba(17, 24, 39, 0.07);
+}
+
+.meridian-header__rail {
+	border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.meridian-header__rail-inner,
+.meridian-header__main {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.meridian-header__rail-inner {
+	min-height: 2.75rem;
+}
+
+.meridian-header__signal {
+	margin: 0;
+	font-size: 0.82rem;
+	color: var(--atora-text-subtle);
+}
+
+.meridian-mini-menu,
+.meridian-menu,
+.meridian-footer__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem 1.1rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.meridian-mini-menu a,
+.meridian-menu a,
+.meridian-footer__links a {
+	text-decoration: none;
+	color: var(--atora-text-muted);
+	transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.meridian-mini-menu a:hover,
+.meridian-menu a:hover,
+.meridian-footer__links a:hover {
+	color: var(--atora-text);
+}
+
+.meridian-header__main {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	gap: 0;
+}
+
+.meridian-header__row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.meridian-header__row--top {
+	min-height: 5.1rem;
+}
+
+.meridian-header__row--nav {
+	padding-bottom: 0.85rem;
+}
+
+.meridian-header__brand {
+	display: flex;
+	align-items: center;
+	flex: 0 0 auto;
+}
+
+.meridian-brand__wordmark,
+.custom-logo-link {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0.16rem;
+	text-decoration: none;
+}
+
+.custom-logo {
+	max-height: 3rem;
+	width: auto;
+}
+
+.meridian-brand__title {
+	font-family: var(--meridian-font-display);
+	font-size: 1.5rem;
+	font-weight: 600;
+	letter-spacing: -0.05em;
+	line-height: 1;
+	color: var(--atora-text);
+}
+
+.meridian-brand__tag {
+	font-family: var(--meridian-font-mono);
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	color: var(--atora-text-subtle);
+}
+
+.meridian-header__nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.2rem;
+	flex: 1 1 auto;
+}
+
+.meridian-menu {
+	align-items: center;
+	justify-content: center;
+}
+
+.meridian-menu a {
+	font-size: 0.95rem;
+	font-weight: 700;
+	padding: 0.45rem 0;
+	color: var(--atora-text);
+}
+
+.meridian-header__nav-actions,
+.meridian-header__actions {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.meridian-header__nav-actions {
+	display: none;
+}
+
+.meridian-header__toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.3rem;
+	width: 2.85rem;
+	height: 2.85rem;
+	padding: 0;
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid var(--atora-border);
+	box-shadow: none;
+}
+
+.meridian-header__toggle span {
+	display: block;
+	width: 1.25rem;
+	height: 2px;
+	margin: 0 auto;
+	background: var(--atora-text);
+	border-radius: 999px;
+}
+
+.meridian-search-panel {
+	border-top: 1px solid rgba(17, 24, 39, 0.06);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(248, 244, 237, 0.98) 100%);
+}
+
+.meridian-search-panel__inner {
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: 2rem;
+	padding: 2rem 0;
+}
+
+.meridian-search-panel__copy h2 {
+	max-width: 18ch;
+	font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.meridian-search-panel__form {
+	display: grid;
+	gap: 1rem;
+	align-content: center;
+}
+
+.search-form,
+.woocommerce-product-search {
+	display: grid;
+	gap: 0.8rem;
+}
+
+.search-form-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.8rem;
+}
+
+.search-submit {
+	width: auto;
+}
+
+.meridian-page-hero,
+.meridian-home-hero,
+.meridian-archive-hero,
+.meridian-single-hero,
+.meridian-podcast-hero,
+.meridian-shop-hero,
+.meridian-dashboard-hero {
+	width: var(--meridian-wide);
+	margin: 0 auto;
+	padding: clamp(2.8rem, 6vw, 5rem) 0 2rem;
+}
+
+.meridian-home-hero__grid,
+.meridian-page-hero__grid,
+.meridian-shop-hero__grid,
+.meridian-dashboard-hero__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+	gap: clamp(1.2rem, 3vw, 2rem);
+	align-items: start;
+}
+
+.meridian-home-hero__panel,
+.meridian-page-hero__panel,
+.meridian-dashboard-panel,
+.meridian-surface,
+.meridian-course-section,
+.meridian-overview-section,
+.meridian-teacher-section,
+.meridian-crm-lead__card,
+.post-card,
+.atora-course-card,
+.meridian-episode-card,
+.meridian-stat-card,
+.meridian-empty-state,
+.woocommerce .product,
+.woocommerce-page .woocommerce,
+.cc-wrap .meridian-course-hero__offer,
+.cov-wrap .meridian-overview-hero__aside {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.74) 100%);
+	border: 1px solid var(--atora-border);
+	border-radius: var(--meridian-radius-lg);
+	box-shadow: var(--meridian-shadow-sm);
+}
+
+.meridian-home-hero__copy,
+.meridian-page-hero__copy,
+.meridian-archive-hero__copy,
+.meridian-single-hero__copy,
+.meridian-podcast-hero__copy,
+.meridian-shop-hero__copy,
+.meridian-dashboard-hero__copy {
+	max-width: 48rem;
+}
+
+.meridian-home-hero h1,
+.meridian-page-hero h1,
+.meridian-archive-hero h1,
+.meridian-single-hero h1,
+.meridian-podcast-hero h1,
+.meridian-shop-hero h1,
+.meridian-dashboard-hero h1 {
+	font-size: clamp(2.7rem, 6vw, 5.6rem);
+	max-width: 11ch;
+}
+
+.meridian-home-hero p,
+.meridian-page-hero p,
+.meridian-archive-hero p,
+.meridian-single-hero p,
+.meridian-podcast-hero p,
+.meridian-shop-hero p,
+.meridian-dashboard-hero p {
+	max-width: 42rem;
+	font-size: clamp(1.02rem, 2vw, 1.2rem);
+}
+
+.meridian-hero-actions,
+.meridian-home-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.85rem;
+	margin-top: 1.5rem;
+}
+
+.meridian-home-hero__panel,
+.meridian-page-hero__panel,
+.meridian-dashboard-panel {
+	padding: 1.4rem;
+}
+
+.meridian-home-hero__panel h3,
+.meridian-page-hero__panel h3,
+.meridian-dashboard-panel h3 {
+	font-size: 1.55rem;
+	margin-bottom: 0.7rem;
+}
+
+.meridian-metrics {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.9rem;
+	margin-top: 1.4rem;
+}
+
+.meridian-metric,
+.meridian-stat-card {
+	padding: 1rem 1.05rem;
+	border-radius: var(--meridian-radius);
+	background: rgba(255, 255, 255, 0.66);
+	border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.meridian-metric strong,
+.meridian-stat-card strong {
+	display: block;
+	font-size: clamp(1.35rem, 3vw, 2rem);
+	color: var(--atora-text);
+}
+
+.meridian-metric span,
+.meridian-stat-card span {
+	font-size: 0.85rem;
+	color: var(--atora-text-subtle);
+}
+
+.meridian-section {
+	width: var(--meridian-wide);
+	margin: 0 auto;
+	padding: 1rem 0 4.2rem;
+}
+
+.meridian-section__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: end;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1.6rem;
+}
+
+.meridian-section__head h2 {
+	font-size: clamp(2rem, 4vw, 3rem);
+	max-width: 13ch;
+}
+
+.meridian-link {
+	font-weight: 800;
+	text-decoration: none;
+	color: var(--atora-accent);
+}
+
+.meridian-grid,
+.posts-grid,
+.atora-posts-grid,
+.meridian-catalog-grid,
+.meridian-vision-grid,
+.meridian-story-grid,
+.meridian-dashboard-grid {
+	display: grid;
+	gap: var(--meridian-grid-gap);
+}
+
+.meridian-grid--2,
+.meridian-dashboard-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.meridian-grid--3,
+.posts-grid,
+.atora-posts-grid,
+.meridian-vision-grid,
+.meridian-story-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.post-card,
+.atora-course-card,
+.meridian-episode-card {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+}
+
+.post-card a,
+.atora-course-card a,
+.meridian-episode-card a {
+	text-decoration: none;
+}
+
+.post-thumbnail,
+.atora-course-thumbnail,
+.meridian-episode-card__media {
+	position: relative;
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	background: linear-gradient(135deg, rgba(30, 94, 255, 0.12), rgba(17, 70, 202, 0.04));
+}
+
+.post-thumbnail img,
+.atora-course-thumbnail img,
+.meridian-episode-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.35s ease;
+}
+
+.post-card:hover img,
+.atora-course-card:hover img,
+.meridian-episode-card:hover img {
+	transform: scale(1.04);
+}
+
+.post-card__body,
+.atora-course-content,
+.meridian-episode-card__body {
+	padding: 1.3rem;
+}
+
+.entry-title,
+.atora-course-title,
+.meridian-episode-card__title {
+	font-size: 1.55rem;
+	line-height: 1.15;
+}
+
+.entry-title a,
+.atora-course-title a,
+.meridian-episode-card__title a {
+	color: var(--atora-text);
+}
+
+.meridian-entry-meta,
+.atora-course-meta,
+.meridian-podcast-meta,
+.entry-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem 1rem;
+	font-size: 0.84rem;
+	color: var(--atora-text-subtle);
+	margin-bottom: 0.85rem;
+}
+
+.meridian-entry-meta span,
+.atora-course-meta span,
+.meridian-podcast-meta span {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+}
+
+.atora-course-badges {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	z-index: 2;
+}
+
+.atora-course-level-badge,
+.meridian-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.42rem 0.72rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.92);
+	color: var(--atora-accent);
+	font-size: 0.74rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	font-family: var(--meridian-font-mono);
+}
+
+.atora-course-duration {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	z-index: 2;
+	display: inline-flex;
+	align-items: center;
+	padding: 0.48rem 0.7rem;
+	border-radius: 999px;
+	background: rgba(17, 24, 39, 0.78);
+	color: #fff;
+	font-size: 0.78rem;
+	font-weight: 700;
+}
+
+.atora-course-excerpt,
+.entry-content,
+.meridian-episode-card__excerpt,
+.course-card-excerpt {
+	color: var(--atora-text-muted);
+}
+
+.atora-course-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1rem;
+	margin-bottom: 1rem;
+	font-size: 0.9rem;
+	color: var(--atora-text-subtle);
+}
+
+.atora-course-footer,
+.entry-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.atora-course-price-current {
+	display: block;
+	font-size: 1.3rem;
+	font-weight: 800;
+	color: var(--atora-text);
+}
+
+.atora-course-instructor {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 1rem;
+	color: var(--atora-text-subtle);
+	font-size: 0.88rem;
+}
+
+.atora-course-instructor-avatar {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 999px;
+}
+
+.meridian-richtext,
+.entry-content,
+.page-links,
+.wp-block-group__inner-container {
+	max-width: 100%;
+}
+
+.meridian-richtext > *:last-child,
+.entry-content > *:last-child {
+	margin-bottom: 0;
+}
+
+.meridian-content-shell,
+.meridian-article-shell,
+.meridian-search-shell,
+.meridian-catalog-shell,
+.meridian-dashboard-shell,
+.meridian-shop-shell,
+.meridian-404-shell,
+.meridian-podcast-shell {
+	width: var(--meridian-wide);
+	margin: 0 auto;
+	padding-bottom: 4rem;
+}
+
+.meridian-visual-canvas {
+	width: var(--meridian-wide);
+	margin: 0 auto;
+	padding-bottom: 4rem;
+}
+
+.meridian-visual-canvas__content {
+	display: grid;
+	gap: 1.4rem;
+}
+
+.meridian-visual-canvas__content > * {
+	width: min(100%, 48rem);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.meridian-visual-canvas__content > .alignwide {
+	width: 100%;
+}
+
+.meridian-visual-canvas__content > .alignfull {
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
+
+.meridian-visual-canvas__content .wp-block-group.has-background,
+.meridian-visual-canvas__content .wp-block-cover,
+.meridian-visual-canvas__content .wp-block-media-text {
+	border-radius: var(--meridian-radius-lg);
+	overflow: hidden;
+	box-shadow: var(--meridian-shadow-sm);
+}
+
+.meridian-content-shell__inner,
+.meridian-single-layout,
+.meridian-dashboard-layout,
+.meridian-shop-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(270px, 320px);
+	gap: clamp(1.2rem, 3vw, 2rem);
+	align-items: start;
+}
+
+.meridian-content-shell__inner.is-single-column,
+.meridian-single-layout.is-single-column {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.meridian-content-card,
+.meridian-sidebar-card,
+.meridian-article,
+.meridian-shop-panel,
+.woocommerce-page .woocommerce,
+.meridian-dashboard-panel {
+	padding: 1.5rem;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.78) 100%);
+	border: 1px solid var(--atora-border);
+	border-radius: var(--meridian-radius-lg);
+	box-shadow: var(--meridian-shadow-sm);
+}
+
+.meridian-sidebar {
+	display: grid;
+	gap: 1rem;
+}
+
+.meridian-sidebar-card h3 {
+	font-size: 1.45rem;
+	margin-bottom: 0.65rem;
+}
+
+.meridian-sidebar-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.7rem;
+}
+
+.meridian-sidebar-list a {
+	text-decoration: none;
+	color: var(--atora-text-muted);
+}
+
+.meridian-sidebar-list a:hover {
+	color: var(--atora-text);
+}
+
+.meridian-archive-hero,
+.meridian-single-hero,
+.meridian-podcast-hero,
+.meridian-shop-hero {
+	display: grid;
+	gap: 1.2rem;
+}
+
+.meridian-featured-media {
+	overflow: hidden;
+	border-radius: var(--meridian-radius-lg);
+	box-shadow: var(--meridian-shadow-md);
+}
+
+.meridian-featured-media img {
+	width: 100%;
+	height: auto;
+}
+
+.meridian-no-results,
+.meridian-empty-state {
+	padding: 2rem;
+	text-align: center;
+}
+
+.meridian-no-results h2,
+.meridian-empty-state h2 {
+	font-size: 2rem;
+}
+
+.nav-links,
+.woocommerce nav.woocommerce-pagination ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem;
+	margin-top: 2rem;
+}
+
+.page-numbers,
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.8rem;
+	height: 2.8rem;
+	padding: 0 0.8rem;
+	border-radius: 999px;
+	border: 1px solid var(--atora-border);
+	background: rgba(255, 255, 255, 0.82);
+	text-decoration: none;
+	color: var(--atora-text);
+}
+
+.page-numbers.current,
+.woocommerce nav.woocommerce-pagination ul li span.current {
+	background: var(--atora-accent);
+	color: var(--atora-on-accent);
+	border-color: transparent;
+}
+
+.meridian-footer {
+	padding: 0 0 3rem;
+}
+
+.meridian-footer .meridian-shell {
+	padding: 2rem 0 0;
+}
+
+.meridian-footer__hero {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem 2rem;
+	padding: 1.7rem;
+	margin-bottom: 1.5rem;
+	border: 1px solid var(--atora-border);
+	border-radius: var(--meridian-radius-lg);
+	background: linear-gradient(135deg, rgba(17, 24, 39, 0.94) 0%, rgba(30, 94, 255, 0.88) 100%);
+	box-shadow: var(--meridian-shadow-md);
+}
+
+.meridian-footer__hero h2,
+.meridian-footer__hero p,
+.meridian-footer__hero .meridian-eyebrow {
+	color: #fff;
+}
+
+.meridian-footer__grid {
+	display: grid;
+	grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
+	gap: 1.2rem;
+	padding: 1.7rem;
+	border: 1px solid var(--atora-border);
+	border-radius: var(--meridian-radius-lg);
+	background: rgba(255, 255, 255, 0.64);
+}
+
+.meridian-footer__grid h3 {
+	font-size: 1.2rem;
+	margin-bottom: 0.7rem;
+}
+
+.meridian-footer__brand p {
+	max-width: 28rem;
+}
+
+.meridian-footer__bottom {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 0 0;
+	color: var(--atora-text-subtle);
+	font-size: 0.88rem;
+}
+
+.meridian-footer__legal-row {
+	padding: 0.8rem 0 0;
+	border-top: 1px solid rgba(17, 24, 39, 0.06);
+	margin-top: 1rem;
+}
+
+.meridian-footer__bottom p {
+	margin: 0;
+	color: inherit;
+}
+
+.meridian-home-hero__grid {
+	position: relative;
+}
+
+.meridian-home-hero__panel-list,
+.meridian-vision-list,
+.meridian-offer-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.8rem;
+}
+
+.meridian-home-hero__panel-list li,
+.meridian-vision-card,
+.meridian-story-card {
+	padding: 1rem 1.05rem;
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	border-radius: var(--meridian-radius);
+	background: rgba(255, 255, 255, 0.72);
+}
+
+.meridian-vision-card h3,
+.meridian-story-card h3 {
+	font-size: 1.4rem;
+}
+
+.meridian-editorial-layout .meridian-single-layout {
+	grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.meridian-article {
+	padding: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.meridian-article .entry-content > * {
+	max-width: 44rem;
+}
+
+.meridian-article .entry-content > figure,
+.meridian-article .entry-content > .wp-block-image,
+.meridian-article .entry-content > .wp-block-cover,
+.meridian-article .entry-content > .wp-block-gallery {
+	max-width: 100%;
+}
+
+.meridian-author-card {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 1rem;
+	align-items: center;
+	padding-top: 1.5rem;
+	margin-top: 1.5rem;
+	border-top: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.meridian-author-card img {
+	border-radius: 999px;
+}
+
+.meridian-dashboard-layout {
+	grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.meridian-dashboard-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	margin-bottom: 1rem;
+}
+
+.meridian-progress {
+	height: 0.65rem;
+	border-radius: 999px;
+	background: rgba(17, 24, 39, 0.08);
+	overflow: hidden;
+}
+
+.meridian-progress span {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(90deg, var(--atora-accent), #5d8cff);
+}
+
+.meridian-shop-layout {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.woocommerce ul.products {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+.woocommerce ul.products li.product {
+	margin: 0;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.84);
+	border: 1px solid var(--atora-border);
+	border-radius: var(--meridian-radius);
+	box-shadow: var(--meridian-shadow-sm);
+}
+
+.woocommerce div.product {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+	gap: 2rem;
+}
+
+.woocommerce .quantity .qty {
+	width: 5rem;
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	border-radius: var(--meridian-radius);
+	border-color: rgba(17, 24, 39, 0.08);
+	background: rgba(255, 255, 255, 0.84);
+}
+
+.meridian-podcast-player {
+	padding: 1.2rem;
+	border: 1px solid var(--atora-border);
+	border-radius: var(--meridian-radius);
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.meridian-podcast-player audio {
+	width: 100%;
+}
+
+.meridian-course-section,
+.meridian-overview-section,
+.meridian-teacher-section,
+.meridian-crm-lead__card {
+	padding: 1.4rem;
+}
+
+.cc-wrap .meridian-course-hero,
+.cov-wrap .meridian-overview-hero,
+.tp-wrap .meridian-teacher-hero {
+	display: grid;
+	gap: 1.2rem;
+}
+
+.cc-wrap .meridian-course-hero {
+	grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+	align-items: start;
+	padding: 2rem 0 1rem;
+}
+
+.cc-wrap .meridian-course-hero__aside {
+	display: grid;
+	gap: 1rem;
+}
+
+.cc-wrap .meridian-course-hero__copy h1,
+.cov-wrap .meridian-overview-hero__copy h1,
+.tp-wrap .meridian-teacher-hero__copy h1 {
+	font-size: clamp(2.5rem, 6vw, 4.6rem);
+	max-width: 10ch;
+}
+
+.cc-wrap .meridian-course-hero__meta,
+.cov-wrap .meridian-overview-hero__meta,
+.tp-wrap .meridian-teacher-hero__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-bottom: 1.1rem;
+}
+
+.cc-wrap .meridian-course-hero__stat,
+.cov-wrap .meridian-overview-hero__stat,
+.tp-wrap .meridian-teacher-hero__stat {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 0.85rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.86);
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	font-size: 0.84rem;
+	font-weight: 700;
+	color: var(--atora-text);
+}
+
+.cc-wrap .meridian-course-hero__media {
+	border-radius: var(--meridian-radius-lg);
+	overflow: hidden;
+	box-shadow: var(--meridian-shadow-md);
+}
+
+.cc-wrap .meridian-course-hero__media iframe,
+.cc-wrap .meridian-course-hero__media video,
+.cc-wrap .meridian-course-hero__media img,
+.cov-wrap .meridian-overview-hero__media img,
+.tp-wrap .meridian-teacher-hero__avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.cc-wrap .meridian-course-hero__offer {
+	padding: 1.2rem;
+}
+
+.cc-wrap .meridian-course-hero__price {
+	display: block;
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 800;
+	color: var(--atora-text);
+}
+
+.cc-wrap .meridian-course-hero--centered,
+.cc-wrap .meridian-course-hero--minimal {
+	grid-template-columns: 1fr;
+}
+
+.cc-wrap .meridian-course-section__list,
+.cov-wrap .meridian-overview-curriculum,
+.tp-wrap .meridian-teacher-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.9rem;
+}
+
+.cc-wrap .meridian-course-section__list li,
+.cov-wrap .meridian-overview-curriculum li,
+.tp-wrap .meridian-teacher-list li {
+	padding: 1rem 1.05rem;
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	border-radius: var(--meridian-radius);
+	background: rgba(255, 255, 255, 0.72);
+}
+
+.cc-wrap .meridian-course-section,
+.cov-wrap .meridian-overview-section,
+.tp-wrap .meridian-teacher-section,
+.meridian-crm-lead {
+	margin: 0 auto 1rem;
+}
+
+.cc-wrap .meridian-course-section h2,
+.cov-wrap .meridian-overview-section h2,
+.tp-wrap .meridian-teacher-section h2 {
+	font-size: clamp(1.8rem, 4vw, 2.7rem);
+	max-width: 16ch;
+}
+
+.cc-wrap .meridian-course-section__list li p,
+.cov-wrap .meridian-overview-curriculum li p,
+.tp-wrap .meridian-teacher-list li p {
+	margin: 0.45rem 0 0;
+}
+
+.cc-wrap .meridian-course-section__list details,
+.cov-wrap .meridian-course-section__list details {
+	padding: 1rem 1.05rem;
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	border-radius: var(--meridian-radius);
+	background: rgba(255, 255, 255, 0.72);
+}
+
+.cc-wrap .meridian-course-section__list summary,
+.cov-wrap .meridian-course-section__list summary {
+	cursor: pointer;
+	list-style: none;
+}
+
+.cc-wrap .meridian-course-section__list summary::-webkit-details-marker,
+.cov-wrap .meridian-course-section__list summary::-webkit-details-marker {
+	display: none;
+}
+
+.cc-wrap .meridian-course-section--cta {
+	background:
+		radial-gradient(circle at top right, rgba(30, 94, 255, 0.16), transparent 30%),
+		linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 255, 0.9) 100%);
+}
+
+.cov-wrap .meridian-overview-hero {
+	grid-template-columns: minmax(0, 1.12fr) minmax(290px, 0.88fr);
+	align-items: stretch;
+	padding: 1rem 0 1.2rem;
+}
+
+.cov-wrap .meridian-overview-hero__aside {
+	padding: 1.2rem;
+}
+
+.cov-wrap .meridian-overview-hero__media {
+	overflow: hidden;
+	border-radius: 20px;
+	box-shadow: var(--meridian-shadow-sm);
+}
+
+.cov-wrap .meridian-overview-progress {
+	display: grid;
+	gap: 0.5rem;
+	margin: 1rem 0 1.2rem;
+}
+
+.cov-wrap .meridian-overview-curriculum li.is-complete {
+	border-color: rgba(28, 147, 100, 0.2);
+	background: rgba(230, 248, 241, 0.74);
+}
+
+.cov-wrap .meridian-overview-curriculum li.is-locked {
+	opacity: 0.74;
+}
+
+.cov-wrap .meridian-overview-curriculum li strong {
+	display: block;
+	color: var(--atora-text);
+}
+
+.tp-wrap .meridian-teacher-hero {
+	grid-template-columns: 180px minmax(0, 1fr);
+	align-items: center;
+	padding: 2rem 0 1rem;
+}
+
+.tp-wrap .meridian-teacher-hero__avatar {
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	border-radius: 999px;
+	border: 6px solid rgba(255, 255, 255, 0.72);
+	box-shadow: var(--meridian-shadow-md);
+}
+
+.tp-wrap .meridian-teacher-hero__avatar .meridian-empty-state {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(135deg, rgba(30, 94, 255, 0.16), rgba(17, 70, 202, 0.08));
+}
+
+.tp-wrap .meridian-teacher-hero__avatar .meridian-empty-state strong {
+	font-size: 3.4rem;
+}
+
+.tp-wrap .meridian-teacher-hero__copy {
+	display: grid;
+	gap: 0.85rem;
+}
+
+.tp-wrap .meridian-teacher-hero__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+}
+
+.tp-wrap .meridian-teacher-hero__stat {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 0.8rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.82);
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	font-size: 0.82rem;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.tp-wrap .meridian-teacher-courses {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.tp-wrap .meridian-teacher-course {
+	padding: 1rem;
+	border-radius: var(--meridian-radius);
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	background: rgba(255, 255, 255, 0.74);
+}
+
+.meridian-crm-lead__card {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: 1rem;
+	background:
+		radial-gradient(circle at top right, rgba(30, 94, 255, 0.1), transparent 32%),
+		linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 255, 0.88) 100%);
+}
+
+.meridian-crm-lead {
+	width: 100%;
+	max-width: var(--meridian-wide);
+	padding: 1rem 0 4rem;
+}
+
+.meridian-crm-lead__card .clms-crm-lead__form,
+.meridian-crm-lead__card form {
+	display: grid;
+	gap: 0.8rem;
+}
+
+[data-reveal] {
+	opacity: 0;
+	transform: translateY(22px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-reveal].is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (max-width: 1100px) {
+	.meridian-home-hero__grid,
+	.meridian-page-hero__grid,
+	.meridian-dashboard-hero__grid,
+	.meridian-content-shell__inner,
+	.meridian-single-layout,
+	.meridian-dashboard-layout,
+	.meridian-shop-layout,
+	.cc-wrap .meridian-course-hero,
+	.cov-wrap .meridian-overview-hero,
+	.tp-wrap .meridian-teacher-hero,
+	.meridian-crm-lead__card,
+	.woocommerce div.product {
+		grid-template-columns: 1fr;
+	}
+
+	.meridian-grid--3,
+	.posts-grid,
+	.atora-posts-grid,
+	.meridian-vision-grid,
+	.meridian-story-grid,
+	.woocommerce ul.products,
+	.tp-wrap .meridian-teacher-courses {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.meridian-footer__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 960px) {
+	.meridian-header__actions {
+		display: none;
+	}
+
+	.meridian-header__toggle {
+		display: inline-flex;
+	}
+
+	.meridian-header__nav {
+		position: fixed;
+		inset: 5.35rem 1rem auto 1rem;
+		display: none;
+		flex-direction: column;
+		align-items: stretch;
+		padding: 1rem;
+		border-radius: 24px;
+		background: rgba(251, 248, 242, 0.98);
+		border: 1px solid var(--atora-border);
+		box-shadow: var(--meridian-shadow-lg);
+	}
+
+	.meridian-header.menu-open .meridian-header__nav {
+		display: flex;
+	}
+
+	.meridian-menu,
+	.meridian-header__nav-actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.meridian-header__nav-actions {
+		display: flex;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(17, 24, 39, 0.08);
+	}
+
+	.meridian-menu a {
+		padding: 0.8rem 0;
+	}
+
+	.meridian-header__rail {
+		display: none;
+	}
+
+	.meridian-search-panel__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.meridian-metrics,
+	.meridian-dashboard-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	:root {
+		--meridian-shell: min(100vw - 1.3rem, 100%);
+		--meridian-wide: min(100vw - 1.3rem, 100%);
+	}
+
+	.site-main {
+		padding-bottom: 4.2rem;
+	}
+
+	.meridian-home-hero,
+	.meridian-page-hero,
+	.meridian-archive-hero,
+	.meridian-single-hero,
+	.meridian-podcast-hero,
+	.meridian-shop-hero,
+	.meridian-dashboard-hero {
+		padding-top: 2rem;
+	}
+
+	.meridian-home-hero h1,
+	.meridian-page-hero h1,
+	.meridian-archive-hero h1,
+	.meridian-single-hero h1,
+	.meridian-podcast-hero h1,
+	.meridian-shop-hero h1,
+	.meridian-dashboard-hero h1,
+	.cc-wrap .meridian-course-hero__copy h1,
+	.cov-wrap .meridian-overview-hero__copy h1,
+	.tp-wrap .meridian-teacher-hero__copy h1 {
+		max-width: none;
+		font-size: clamp(2.25rem, 12vw, 3.4rem);
+	}
+
+	.meridian-grid--3,
+	.posts-grid,
+	.atora-posts-grid,
+	.meridian-vision-grid,
+	.meridian-story-grid,
+	.meridian-grid--2,
+	.meridian-dashboard-grid,
+	.woocommerce ul.products,
+	.tp-wrap .meridian-teacher-courses,
+	.meridian-footer__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.search-form-row {
+		grid-template-columns: 1fr;
+	}
+
+	.meridian-footer__hero {
+		padding: 1.4rem;
+	}
+
+	.meridian-footer__hero-actions,
+	.meridian-hero-actions,
+	.meridian-home-hero__actions {
+		width: 100%;
+	}
+
+	.meridian-footer__hero-actions .meridian-button,
+	.meridian-hero-actions .meridian-button,
+	.meridian-home-hero__actions .meridian-button {
+		flex: 1 1 100%;
+	}
+
+	.tp-wrap .meridian-teacher-hero__avatar {
+		width: 120px;
+		height: 120px;
+	}
+}

@@ -1,0 +1,628 @@
+.atora-home-institucional {
+	--atora-home-radius: 18px;
+	--atora-home-radius-sm: 14px;
+	--atora-home-shadow: 0 18px 70px rgba(16, 22, 42, .10);
+	--atora-home-shadow-sm: 0 10px 36px rgba(16, 22, 42, .10);
+	--atora-home-grid-gap: 16px;
+}
+
+.atora-home-institucional .atora-home-section {
+	padding: clamp(48px, 8vw, 96px) 24px;
+}
+
+.atora-home-institucional .atora-home-logo {
+	margin: 0 0 16px;
+}
+
+.atora-home-institucional .atora-home-eyebrow,
+.atora-home-institucional .atora-home-kicker {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin: 0 0 16px;
+	font-size: .78rem;
+	font-weight: 800;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-eyebrow::before,
+.atora-home-institucional .atora-home-kicker::before {
+	content: "";
+	width: 22px;
+	height: 4px;
+	border-radius: 999px;
+	background: var(--wp--preset--color--amber);
+}
+
+.atora-home-institucional .atora-home-eyebrow-on-dark {
+	color: color-mix(in srgb, var(--wp--preset--color--amber) 85%, white);
+}
+
+.atora-home-institucional .atora-home-eyebrow-on-dark::before {
+	background: var(--wp--preset--color--amber);
+}
+
+.atora-home-institucional .atora-home-accent {
+	color: var(--wp--preset--color--amber);
+}
+
+/* HERO */
+.atora-home-institucional .atora-home-hero {
+	background: radial-gradient(1200px 600px at 80% 35%, rgba(255, 176, 32, .18), rgba(255, 176, 32, 0) 55%),
+		linear-gradient(135deg, var(--wp--preset--color--blue-ink), var(--wp--preset--color--blue));
+}
+
+.atora-home-institucional .atora-home-hero .atora-home-hero-sep {
+	margin: 28px 0 20px;
+	opacity: .65;
+}
+
+.atora-home-institucional .atora-home-stat {
+	margin: 0;
+	font-size: .92rem;
+	color: color-mix(in srgb, white 86%, var(--wp--preset--color--line));
+}
+
+.atora-home-institucional .atora-home-stat strong {
+	display: inline-block;
+	font-size: 1.75rem;
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	color: white;
+}
+
+/* Dashboard card */
+.atora-home-institucional .atora-home-dashboard {
+	background: white;
+	color: var(--wp--preset--color--ink);
+	border-radius: var(--atora-home-radius);
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
+	box-shadow: var(--atora-home-shadow);
+	padding: 18px;
+}
+
+.atora-home-institucional .atora-home-dashboard-title {
+	margin: 0;
+	font-size: .95rem;
+	font-weight: 700;
+}
+
+.atora-home-institucional .atora-home-badge {
+	margin: 0;
+	padding: 6px 10px;
+	border-radius: 999px;
+	font-size: .78rem;
+	font-weight: 800;
+	letter-spacing: .02em;
+	background: color-mix(in srgb, var(--wp--preset--color--blue) 12%, white);
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-badge-floating {
+	display: inline-flex;
+	width: fit-content;
+	margin: 0 0 10px;
+	background: var(--wp--preset--color--amber);
+	color: var(--wp--preset--color--ink);
+}
+
+.atora-home-institucional .atora-home-dashboard-metric {
+	background: color-mix(in srgb, var(--wp--preset--color--bg-2) 65%, white);
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
+	border-radius: var(--atora-home-radius-sm);
+	padding: 12px;
+}
+
+.atora-home-institucional .atora-home-dashboard-label {
+	margin: 0;
+	font-size: .68rem;
+	font-weight: 800;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-dashboard-value {
+	margin: 4px 0 0;
+	font-size: 1.25rem;
+}
+
+.atora-home-institucional .atora-home-dashboard-value-amber {
+	color: var(--wp--preset--color--amber);
+}
+
+.atora-home-institucional .atora-home-progress {
+	margin-top: 8px;
+	height: 8px;
+	border-radius: 999px;
+	overflow: hidden;
+	background: color-mix(in srgb, var(--wp--preset--color--line) 60%, transparent);
+	position: relative;
+}
+
+.atora-home-institucional .atora-home-progress::before {
+	content: "";
+	position: absolute;
+	inset: 0 35% 0 0;
+	border-radius: 999px;
+	background: linear-gradient(90deg, var(--wp--preset--color--blue) 0%, var(--wp--preset--color--amber) 100%);
+}
+
+.atora-home-institucional .atora-home-dashboard-list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+	font-size: .88rem;
+}
+
+.atora-home-institucional .atora-home-dashboard-list li {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 10px 0;
+	border-bottom: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 65%, transparent);
+}
+
+.atora-home-institucional .atora-home-dashboard-list li:last-child {
+	border-bottom: 0;
+}
+
+.atora-home-institucional .atora-home-chip {
+	white-space: nowrap;
+	font-size: .72rem;
+	font-weight: 800;
+	padding: 4px 10px;
+	border-radius: 999px;
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
+	background: color-mix(in srgb, var(--wp--preset--color--bg-2) 55%, white);
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-chip.is-good {
+	background: color-mix(in srgb, #0f8a51 10%, white);
+	color: color-mix(in srgb, #0f8a51 78%, var(--wp--preset--color--ink));
+}
+
+.atora-home-institucional .atora-home-chip.is-warn {
+	background: color-mix(in srgb, var(--wp--preset--color--amber) 22%, white);
+	color: color-mix(in srgb, var(--wp--preset--color--amber) 90%, var(--wp--preset--color--ink));
+}
+
+/* Check band */
+.atora-home-institucional .atora-home-checkband {
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+
+.atora-home-institucional .atora-home-checklist {
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 24px;
+	align-items: center;
+	justify-content: center;
+	color: var(--wp--preset--color--ink-2);
+	font-weight: 600;
+}
+
+.atora-home-institucional .atora-home-checklist li {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.atora-home-institucional .atora-home-checklist li::before {
+	content: "✓";
+	font-weight: 900;
+	color: var(--wp--preset--color--blue);
+}
+
+/* Feature cards */
+.atora-home-institucional .atora-home-feature-card,
+.atora-home-institucional .atora-home-segment,
+.atora-home-institucional .atora-home-price-card,
+.atora-home-institucional .atora-home-course {
+	background: white;
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 80%, transparent);
+	border-radius: var(--atora-home-radius);
+	box-shadow: var(--atora-home-shadow-sm);
+	padding: 22px;
+}
+
+.atora-home-institucional .atora-home-feature-card h3 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: var(--wp--preset--font-family--sora);
+	font-weight: 800;
+}
+
+.atora-home-institucional .atora-home-feature-icon {
+	width: 30px;
+	height: 30px;
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-feature-card.is-highlight {
+	background: var(--wp--preset--color--amber-soft);
+	border-color: color-mix(in srgb, var(--wp--preset--color--amber) 55%, var(--wp--preset--color--line));
+}
+
+/* Segments */
+.atora-home-institucional .atora-home-segment {
+	padding: 0;
+	overflow: hidden;
+}
+
+.atora-home-institucional .atora-home-segment-head {
+	padding: 22px;
+	background: linear-gradient(180deg, var(--wp--preset--color--blue-ink), var(--wp--preset--color--blue-deep));
+	color: white;
+}
+
+.atora-home-institucional .atora-home-segment-kicker {
+	margin: 0 0 8px;
+	font-size: .78rem;
+	letter-spacing: .12em;
+	font-weight: 900;
+	color: var(--wp--preset--color--amber);
+}
+
+.atora-home-institucional .atora-home-segment-head h3 {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--sora);
+	font-weight: 900;
+	letter-spacing: -0.02em;
+}
+
+.atora-home-institucional .atora-home-bullets {
+	margin: 0;
+	padding: 18px 24px 22px 44px;
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-bullets li {
+	margin: 10px 0;
+}
+
+.atora-home-institucional .atora-home-bullets li::marker {
+	color: var(--wp--preset--color--amber);
+}
+
+/* Trust list */
+.atora-home-institucional .atora-home-trust-item {
+	gap: 14px;
+	margin-bottom: 16px;
+}
+
+.atora-home-institucional .atora-home-dot {
+	width: 14px;
+	height: 14px;
+	border-radius: 999px;
+	background: var(--wp--preset--color--blue);
+	box-shadow: 0 0 0 8px color-mix(in srgb, var(--wp--preset--color--blue) 18%, transparent);
+	flex: 0 0 auto;
+	margin-top: 6px;
+}
+
+.atora-home-institucional .atora-home-trust-title {
+	margin: 0;
+	font-size: 1.06rem;
+}
+
+.atora-home-institucional .atora-home-trust-item p {
+	margin: 0;
+}
+
+/* Architecture */
+.atora-home-institucional .atora-home-arch {
+	background: linear-gradient(180deg, var(--wp--preset--color--blue-ink), var(--wp--preset--color--blue-deep));
+	color: white;
+	border-radius: 24px;
+	box-shadow: var(--atora-home-shadow);
+	padding: 22px;
+}
+
+.atora-home-institucional .atora-home-arch-kicker {
+	margin: 0 0 14px;
+	font-size: .85rem;
+	font-weight: 900;
+	letter-spacing: .12em;
+	color: var(--wp--preset--color--amber);
+}
+
+.atora-home-institucional .atora-home-arch-item {
+	padding: 14px 16px;
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, .14);
+	background: rgba(255, 255, 255, .06);
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.atora-home-institucional .atora-home-arch-item.is-active {
+	background: color-mix(in srgb, var(--wp--preset--color--blue) 55%, rgba(255, 255, 255, .08));
+	border-color: rgba(255, 255, 255, .22);
+}
+
+.atora-home-institucional .atora-home-arch-item p {
+	margin: 0;
+	font-size: .95rem;
+}
+
+/* Pricing */
+.atora-home-institucional .atora-home-price-card {
+	position: relative;
+}
+
+.atora-home-institucional .atora-home-price {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-price-small {
+	font-size: 1rem;
+	font-weight: 800;
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-price-card.is-featured {
+	border: 2px solid var(--wp--preset--color--amber);
+	box-shadow: var(--atora-home-shadow);
+}
+
+.atora-home-institucional .atora-home-price-card ul {
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-price-card ul li::marker {
+	color: var(--wp--preset--color--amber);
+}
+
+/* Courses */
+.atora-home-institucional .atora-home-course-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 20px;
+	margin-top: 28px;
+}
+
+.atora-home-institucional .atora-home-course {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	overflow: hidden;
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.atora-home-institucional .atora-home-course:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--atora-home-shadow);
+}
+
+.atora-home-institucional .atora-home-course-media {
+	display: block;
+	aspect-ratio: 3 / 2;
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--wp--preset--color--blue-deep), var(--wp--preset--color--blue));
+}
+
+.atora-home-institucional .atora-home-course-media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform .35s ease;
+}
+
+.atora-home-institucional .atora-home-course:hover .atora-home-course-media img {
+	transform: scale(1.04);
+}
+
+.atora-home-institucional .atora-home-course-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 18px 20px 0;
+}
+
+.atora-home-institucional .atora-home-course h3 {
+	margin: 0 0 6px;
+	font-family: var(--wp--preset--font-family--sora);
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.25;
+}
+
+.atora-home-institucional .atora-home-course h3 a {
+	color: var(--wp--preset--color--ink);
+	text-decoration: none;
+}
+
+.atora-home-institucional .atora-home-course h3 a:hover {
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-course-mentor {
+	margin: 0 0 10px;
+	font-size: .82rem;
+	font-weight: 700;
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-course-desc {
+	flex: 1;
+	margin: 0 0 14px;
+	font-size: .92rem;
+	line-height: 1.55;
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-course-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 14px;
+	margin: 0 -20px;
+	padding: 12px 20px 16px;
+	border-top: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
+	font-size: .85rem;
+	color: var(--wp--preset--color--ink-2);
+}
+
+/* Mentors */
+.atora-home-institucional .atora-home-mentors {
+	margin-top: clamp(40px, 6vw, 64px);
+}
+
+.atora-home-institucional .atora-home-mentors-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 12px 24px;
+	margin-bottom: 20px;
+}
+
+.atora-home-institucional .atora-home-mentors-head h3 {
+	margin: 0 0 6px;
+	font-family: var(--wp--preset--font-family--sora);
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+
+.atora-home-institucional .atora-home-mentors-head p {
+	margin: 0;
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-mentors-all {
+	font-weight: 800;
+	color: var(--wp--preset--color--blue);
+	text-decoration: none;
+}
+
+.atora-home-institucional .atora-home-mentor-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 16px;
+}
+
+.atora-home-institucional .atora-home-mentor {
+	display: grid;
+	grid-template-columns: 76px minmax(0, 1fr);
+	grid-template-rows: auto auto 1fr;
+	column-gap: 16px;
+	row-gap: 2px;
+	align-items: start;
+	padding: 18px;
+	text-decoration: none;
+	background: white;
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 80%, transparent);
+	border-radius: var(--atora-home-radius);
+	box-shadow: var(--atora-home-shadow-sm);
+	transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.atora-home-institucional .atora-home-mentor:hover,
+.atora-home-institucional .atora-home-mentor:focus-visible {
+	transform: translateY(-3px);
+	border-color: var(--wp--preset--color--blue);
+	box-shadow: var(--atora-home-shadow);
+}
+
+.atora-home-institucional .atora-home-mentor-photo {
+	grid-row: 1 / span 3;
+	display: grid;
+	place-items: center;
+	width: 76px;
+	height: 76px;
+	overflow: hidden;
+	border-radius: 999px;
+	font-family: var(--wp--preset--font-family--sora);
+	font-weight: 900;
+	font-size: 1.3rem;
+	color: var(--wp--preset--color--blue-ink);
+	background: color-mix(in srgb, var(--wp--preset--color--amber) 18%, white);
+	box-shadow: 0 0 0 3px white, 0 0 0 5px var(--wp--preset--color--amber);
+}
+
+.atora-home-institucional .atora-home-mentor-photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.atora-home-institucional .atora-home-mentor-name {
+	font-weight: 800;
+	line-height: 1.25;
+	color: var(--wp--preset--color--ink);
+}
+
+.atora-home-institucional .atora-home-mentor-role {
+	font-size: .85rem;
+	line-height: 1.4;
+	color: var(--wp--preset--color--ink-2);
+}
+
+.atora-home-institucional .atora-home-mentor-cta {
+	grid-column: 2;
+	align-self: end;
+	padding-top: 8px;
+	font-size: .8rem;
+	font-weight: 800;
+	color: var(--wp--preset--color--blue);
+}
+
+.atora-home-institucional .atora-home-mentor:hover .atora-home-mentor-cta::after {
+	content: " →";
+}
+
+@media (max-width: 1080px) {
+	.atora-home-institucional .atora-home-course-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.atora-home-institucional .atora-home-course-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.atora-home-institucional .atora-home-mentor-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Text on dark blue surfaces: the base theme forces dark headings and
+   muted-gray paragraphs, which become unreadable here. */
+.atora-home-institucional .atora-home-hero,
+.atora-home-institucional .atora-home-segment-head,
+.atora-home-institucional .atora-home-arch,
+.atora-home-institucional .atora-home-quote,
+.atora-home-institucional .atora-home-final {
+	--atora-home-on-dark-muted: #D3DBF2;
+	color: white;
+}
+
+.atora-home-institucional :is(.atora-home-hero, .atora-home-segment-head, .atora-home-arch, .atora-home-quote, .atora-home-final) :is(h1, h2, h3, h4, strong):not(.atora-home-dashboard *) {
+	color: white;
+}
+
+.atora-home-institucional :is(.atora-home-hero, .atora-home-segment-head, .atora-home-arch, .atora-home-quote, .atora-home-final) :is(p, li, span):not([class*="atora-home-"]):not([class*="has-"]):not(.atora-home-dashboard *) {
+	color: var(--atora-home-on-dark-muted);
+}
+
+/* Editor-assigned dark text presets (applied by WP with !important). */
+.atora-home-institucional :is(.atora-home-hero, .atora-home-segment-head, .atora-home-arch, .atora-home-quote, .atora-home-final) :is(.has-ink-2-color, .has-ink-color):not(.atora-home-dashboard *):not(.wp-element-button) {
+	color: var(--atora-home-on-dark-muted) !important;
+}
+
+/* The hero dashboard is a white card inside the dark hero. */
+.atora-home-institucional .atora-home-hero .atora-home-dashboard {
+	color: var(--wp--preset--color--ink);
+}

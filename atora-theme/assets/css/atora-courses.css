@@ -1,0 +1,54 @@
+.atora-course-shell {
+    border: 1px solid #dbe2ea;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+.atora-course-shell .atora-price-card__price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--atora-token-accent, #0f766e);
+}
+
+.atora-course-shell .atora-woocommerce-cta__price {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.atora-course-commercial {
+    background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%);
+    border-color: #99f6e4;
+}
+
+.atora-course-commercial .atora-theme-card--cta {
+    border-color: #14b8a6;
+    box-shadow: 0 10px 18px rgba(20, 184, 166, 0.14);
+}
+
+.atora-course-student {
+    background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+    border-color: #bfdbfe;
+}
+
+.atora-course-student .atora-progress-bar span {
+    background: #1d4ed8;
+}
+
+.atora-course-premium {
+    background: linear-gradient(180deg, #fefce8 0%, #ffffff 100%);
+    border-color: #fcd34d;
+}
+
+.atora-course-premium .atora-theme-card {
+    box-shadow: 0 8px 18px rgba(180, 83, 9, 0.12);
+}
+
+.atora-course-cohort {
+    background: linear-gradient(180deg, #fff1f2 0%, #ffffff 100%);
+    border-color: #fda4af;
+}
+
+.atora-course-cohort .atora-section-eyebrow {
+    color: #be123c;
+}

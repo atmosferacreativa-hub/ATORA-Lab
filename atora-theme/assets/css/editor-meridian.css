@@ -1,0 +1,99 @@
+body.wp-editor,
+.editor-styles-wrapper {
+	background: #f6f2eb;
+	color: #141a27;
+	font-family: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	line-height: 1.7;
+}
+
+.editor-styles-wrapper {
+	padding: 32px 20px 72px;
+}
+
+.editor-styles-wrapper .is-root-container {
+	max-width: min(1180px, calc(100% - 24px));
+	margin: 0 auto;
+}
+
+.editor-styles-wrapper .is-root-container > * {
+	max-width: 100%;
+}
+
+.editor-styles-wrapper .is-root-container > *:not(.alignwide):not(.alignfull) {
+	max-width: 48rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.editor-styles-wrapper .wp-block {
+	max-width: 100%;
+}
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+	max-width: 1180px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+	max-width: none;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	color: #141a27;
+	font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+	line-height: 1.08;
+	letter-spacing: -0.02em;
+}
+
+.editor-styles-wrapper h1 {
+	font-size: clamp(2.4rem, 5vw, 4.6rem);
+}
+
+.editor-styles-wrapper p,
+.editor-styles-wrapper li {
+	font-size: 1.05rem;
+	color: #4f596b;
+}
+
+.editor-styles-wrapper a {
+	color: #1e5eff;
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+	border-radius: 999px;
+	padding: 0.95rem 1.25rem;
+	font-weight: 700;
+}
+
+.editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
+	border: 1px solid rgba(20, 26, 39, 0.14);
+}
+
+.editor-styles-wrapper .wp-block-group.has-background,
+.editor-styles-wrapper .wp-block-cover,
+.editor-styles-wrapper .wp-block-media-text,
+.editor-styles-wrapper .wp-block-columns.is-style-default {
+	border-radius: 24px;
+	overflow: hidden;
+	box-shadow: 0 22px 60px -38px rgba(20, 26, 39, 0.34);
+}
+
+.editor-styles-wrapper .wp-block-quote,
+.editor-styles-wrapper .wp-block-pullquote {
+	border-left: 4px solid #1e5eff;
+	padding-left: 1.25rem;
+	color: #141a27;
+}
+
+.editor-styles-wrapper .wp-block-separator {
+	border-color: rgba(20, 26, 39, 0.12);
+}
+
+.editor-styles-wrapper .wp-block-post-title,
+.editor-styles-wrapper .editor-post-title__input {
+	font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}

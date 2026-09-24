@@ -1,0 +1,56 @@
+.atora-section {
+    margin-bottom: 18px;
+}
+
+.atora-section:last-child {
+    margin-bottom: 0;
+}
+
+.atora-course-hero {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    align-items: center;
+    gap: 18px;
+}
+
+.atora-course-hero__media img {
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+}
+
+.atora-curriculum-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.atora-curriculum-list li {
+    border: 1px solid #dbe2ea;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #f8fafc;
+}
+
+.atora-progress-bar {
+    border-radius: 999px;
+    overflow: hidden;
+    background: #e2e8f0;
+    height: 10px;
+}
+
+.atora-progress-bar span {
+    display: block;
+    height: 100%;
+    background: var(--atora-token-accent, #0f766e);
+}
+
+.atora-theme-crm-form input,
+.atora-theme-crm-form textarea {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 10px;
+}

@@ -1,0 +1,17 @@
+@media (max-width: 900px) {
+    .atora-theme-grid--4,
+    .atora-theme-grid--3,
+    .atora-theme-grid--2,
+    .atora-course-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .atora-template {
+        padding: 16px 12px;
+    }
+
+    .atora-template-content,
+    .atora-theme-card {
+        padding: 12px;
+    }
+}

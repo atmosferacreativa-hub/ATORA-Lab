@@ -1,0 +1,133 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"layout": {
+			"contentSize": "800px",
+			"wideSize": "1080px"
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true,
+			"units": [ "px", "rem", "em", "%", "vh", "vw" ]
+		},
+		"typography": {
+			"fluid": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Source Sans 3\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+					"name": "Source Sans 3",
+					"slug": "source-sans-3",
+					"fontFace": [
+						{
+							"fontFamily": "Source Sans 3",
+							"fontStyle": "normal",
+							"fontWeight": "200 900",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/source-sans-3-latin-wght.woff2"
+							]
+						},
+						{
+							"fontFamily": "Source Sans 3",
+							"fontStyle": "italic",
+							"fontWeight": "200 900",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/source-sans-3-latin-italic-wght.woff2"
+							]
+						}
+					]
+				},
+				{
+					"fontFamily": "\"Sora\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+					"name": "Sora",
+					"slug": "sora",
+					"fontFace": [
+						{
+							"fontFamily": "Sora",
+							"fontStyle": "normal",
+							"fontWeight": "100 800",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/sora-latin-wght.woff2"
+							]
+						}
+					]
+				}
+			]
+		},
+		"color": {
+			"palette": [
+				{
+					"color": "#1F5BFF",
+					"name": "Blue",
+					"slug": "blue"
+				},
+				{
+					"color": "#0B2C8F",
+					"name": "Blue Deep",
+					"slug": "blue-deep"
+				},
+				{
+					"color": "#071B55",
+					"name": "Blue Ink",
+					"slug": "blue-ink"
+				},
+				{
+					"color": "#FFB020",
+					"name": "Amber",
+					"slug": "amber"
+				},
+				{
+					"color": "#FFF1D1",
+					"name": "Amber Soft",
+					"slug": "amber-soft"
+				},
+				{
+					"color": "#10162A",
+					"name": "Ink",
+					"slug": "ink"
+				},
+				{
+					"color": "#4A5270",
+					"name": "Ink 2",
+					"slug": "ink-2"
+				},
+				{
+					"color": "#F3F6FF",
+					"name": "BG 2",
+					"slug": "bg-2"
+				},
+				{
+					"color": "#DCE2F4",
+					"name": "Line",
+					"slug": "line"
+				}
+			]
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "1.5rem"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--source-sans-3)",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--sora)",
+					"letterSpacing": "-0.02em",
+					"lineHeight": "1.05"
+				}
+			}
+		},
+		"color": {
+			"background": "var(--wp--preset--color--bg-2)",
+			"text": "var(--wp--preset--color--ink)"
+		}
+	}
+}

@@ -1,0 +1,20 @@
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+
+# Backups, paquetes y copias locales
+*.zip
+*.bak-*/
+atora-lms.bak-*/
+atora-lms.pre-montaje-*/
+atora-theme.bak-*/
+front-*-backup-*.html
+ATORA-Lab/
+
+# Sistema / editores
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+node_modules/

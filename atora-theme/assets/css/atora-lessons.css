@@ -1,0 +1,39 @@
+.atora-lesson-shell {
+    border: 1px solid #dbe2ea;
+    border-radius: 18px;
+    background: #fff;
+}
+
+.atora-lesson-shell .atora-lesson-navigation {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.atora-lesson-shell .atora-video-shell iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 12px;
+}
+
+.atora-lesson-focus {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.atora-lesson-video {
+    background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+}
+
+.atora-lesson-reading {
+    background: linear-gradient(180deg, #fefce8 0%, #ffffff 100%);
+}
+
+.atora-lesson-assignment {
+    background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%);
+}
+
+.atora-lesson-evaluation {
+    background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%);
+    border-color: #94a3b8;
+}

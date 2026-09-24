@@ -1,0 +1,174 @@
+/**
+ * ATORA WooCommerce operational layer (Sprint 23)
+ * Keeps WooCommerce markup intact and improves layout consistency.
+ */
+
+.woocommerce-page .site-main,
+.woocommerce .site-main {
+  max-width: min(1240px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.woocommerce-page .content-area,
+.woocommerce .content-area {
+  width: 100%;
+}
+
+.woocommerce .woocommerce-breadcrumb {
+  margin: 0 0 1rem;
+  color: var(--color-gray-500);
+}
+
+.woocommerce ul.products {
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.woocommerce ul.products li.product {
+  min-width: 0;
+}
+
+.woocommerce ul.products li.product a img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.woocommerce ul.products li.product .button {
+  width: calc(100% - 2.5rem);
+}
+
+.woocommerce div.product {
+  display: grid;
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+.woocommerce div.product div.images,
+.woocommerce div.product div.summary {
+  width: 100%;
+}
+
+.woocommerce div.product form.cart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.woocommerce div.product form.cart .quantity .qty {
+  min-height: 48px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-300);
+}
+
+.woocommerce-cart .woocommerce,
+.woocommerce-checkout .woocommerce,
+.woocommerce-account .woocommerce {
+  max-width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.woocommerce-cart .woocommerce-cart-form,
+.woocommerce-cart .cart-collaterals,
+.woocommerce-checkout form.checkout,
+.woocommerce-account .woocommerce-MyAccount-content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-gray-100);
+  border-radius: var(--radius-2xl);
+  padding: clamp(1rem, 2vw, 2rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.woocommerce-cart table.shop_table,
+.woocommerce-checkout table.shop_table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.woocommerce-cart table.shop_table th,
+.woocommerce-cart table.shop_table td,
+.woocommerce-checkout table.shop_table th,
+.woocommerce-checkout table.shop_table td {
+  padding: 0.85rem 0.9rem;
+}
+
+.woocommerce-cart table.shop_table img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.woocommerce-cart .cart_totals h2,
+.woocommerce-checkout h3,
+.woocommerce-account .woocommerce-MyAccount-content h2 {
+  margin-top: 0;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation {
+  margin-bottom: 1rem;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation li a {
+  display: block;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  text-decoration: none;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.woocommerce .woocommerce-info,
+.woocommerce .woocommerce-message,
+.woocommerce .woocommerce-error {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.woocommerce .woocommerce-ordering select,
+.woocommerce .woocommerce-result-count {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .woocommerce div.product div.images,
+  .woocommerce div.product div.summary {
+    width: 100%;
+    float: none;
+  }
+}
+
+@media (max-width: 782px) {
+  .woocommerce-page .site-main,
+  .woocommerce .site-main {
+    max-width: calc(100% - 1.25rem);
+  }
+
+  .woocommerce ul.products {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .woocommerce div.product .product_title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .woocommerce-cart table.shop_table thead {
+    display: none;
+  }
+}

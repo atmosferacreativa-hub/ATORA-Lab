@@ -1,0 +1,46 @@
+.atora-design-center .atora-design-grid,
+.wrap .atora-design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.atora-design-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 112px;
+}
+
+.atora-design-card:hover {
+    border-color: #0f766e;
+    box-shadow: 0 8px 20px rgba(15, 118, 110, 0.08);
+}
+
+.atora-design-card.is-active {
+    border-color: #0f766e;
+    background: #f0fdfa;
+}
+
+.atora-design-card__title {
+    font-weight: 600;
+}
+
+.atora-design-card__cta {
+    color: #0f766e;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.atora-wizard-steps {
+    margin: 16px 0;
+    padding-left: 20px;
+}

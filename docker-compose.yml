@@ -1,0 +1,79 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: atora-database
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: atora_lab
+      MYSQL_USER: atora
+      MYSQL_PASSWORD: atora_local_password
+      MYSQL_ROOT_PASSWORD: atora_root_password
+    volumes:
+      - atora_database:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -uroot
+        - -patora_root_password
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  wordpress:
+    image: wordpress:6.8.3-php8.1-apache
+    container_name: atora-wordpress
+    restart: unless-stopped
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_NAME: atora_lab
+      WORDPRESS_DB_USER: atora
+      WORDPRESS_DB_PASSWORD: atora_local_password
+      WORDPRESS_DEBUG: "1"
+      # SMTP (Gmail u otro). Define estas variables en tu entorno o en un `.env`.
+      ATORA_SMTP_HOST: ${ATORA_SMTP_HOST:-}
+      ATORA_SMTP_PORT: ${ATORA_SMTP_PORT:-}
+      ATORA_SMTP_SECURE: ${ATORA_SMTP_SECURE:-tls}
+      ATORA_SMTP_USER: ${ATORA_SMTP_USER:-}
+      ATORA_SMTP_PASS: ${ATORA_SMTP_PASS:-}
+      ATORA_SMTP_FROM: ${ATORA_SMTP_FROM:-}
+      ATORA_SMTP_FROM_NAME: ${ATORA_SMTP_FROM_NAME:-ATORA Lab}
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_DEBUG_LOG', true );
+        define( 'WP_DEBUG_DISPLAY', false );
+        define( 'SCRIPT_DEBUG', true );
+        define( 'ATORA_DEV_MODE', true );
+        define( 'WP_MEMORY_LIMIT', '512M' );
+        define( 'WP_MAX_MEMORY_LIMIT', '1024M' );
+    volumes:
+      - atora_wordpress:/var/www/html
+      - ./php/conf.d/atora-uploads.ini:/usr/local/etc/php/conf.d/atora-uploads.ini:ro
+      - ${ATORA_LMS_PATH:-./atora-lms}:/var/www/html/wp-content/plugins/atora-lms:cached
+      - ./atora-theme:/var/www/html/wp-content/themes/atora-theme
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: atora-phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: database
+      PMA_USER: root
+      PMA_PASSWORD: atora_root_password
+
+volumes:
+  atora_database:
+  atora_wordpress:
